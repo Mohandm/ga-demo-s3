@@ -25,7 +25,7 @@ if [[ -z "$bucketstatus" ]]; then
 else
     # Create a static website hosting in s3
     echo -e "\n Creating a S3 hosting website"
-    aws s3 mb s3://training-palo-$USERNAME --region ap-southeast-1 > /dev/null 2>&1
+    aws s3 mb s3://training-palo-$USERNAME --region ap-southeast-1
     aws s3api wait bucket-exists --bucket training-palo-$USERNAME
     aws s3api put-object --bucket training-palo-$USERNAME --key index.html --body welcome.html --content-type "text/html" > /dev/null 2>&1
     aws s3 website s3://training-palo-$USERNAME --index-document index.html --error-document error.html

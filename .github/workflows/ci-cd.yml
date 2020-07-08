@@ -1,4 +1,4 @@
-name: ci-cd-s3
+name: ci-cd
 
 on:
   push:
@@ -6,6 +6,7 @@ on:
       - deploy-s3**
     branches:
       - master
+
 
 jobs:
   ci-cd:
@@ -48,5 +49,5 @@ jobs:
 
       - name: Deploy
         run: |
-          aws s3 rm s3://training-palo-/ --recursive
-          aws s3 cp build s3://training-palo-* --recursive
+          aws s3 rm s3://training-palo-test1/ --recursive
+          aws s3 cp build s3://training-palo-test1 --recursive
